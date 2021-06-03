@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{B8367847-7064-459A-8A56-8FE0855611D1}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{C61CB5D4-CF90-4111-9D67-250319946273}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1393,6 +1393,377 @@ FROM     Products INNER JOIN
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\poblamiento tiempo_dim"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D7453C73-D0BA-4450-92F6-DB5E27B7B739}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="poblamiento tiempo_dim"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\poblamiento tiempo_dim\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tiempo_dim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\poblamiento tiempo_dim\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{2F3544C3-887E-42B9-A949-2287DFC27F56}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-QPDCREO.prueba_northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[orderdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="orderdate"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[orderdate]"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[orderdate]" />
+                    <inputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mes]"
+                      cachedDataType="i4"
+                      cachedName="mes"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mes]"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[mes]" />
+                    <inputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[trimestre]"
+                      cachedDataType="i4"
+                      cachedName="trimestre"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[trimestre]"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[trimestre]" />
+                    <inputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[año]"
+                      cachedDataType="i4"
+                      cachedName="año"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[año]"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[año]" />
+                    <inputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dia]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="dia"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dias]"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[dia]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tiempokey]"
+                      dataType="i4"
+                      name="tiempokey" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[orderdate]"
+                      dataType="dbTimeStamp"
+                      name="orderdate" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dias]"
+                      dataType="wstr"
+                      length="50"
+                      name="dias" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mes]"
+                      dataType="i4"
+                      name="mes" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[trimestre]"
+                      dataType="i4"
+                      name="trimestre" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[año]"
+                      dataType="i4"
+                      name="año" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\poblamiento tiempo_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\poblamiento tiempo_dim\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct orderdate,
+datename(dw,orderdate) as dia,
+datepart(mm,orderdate) as mes,
+datepart(qq,orderdate) as trimestre,
+datepart(yy,orderdate) as año
+from orders
+where orderdate is not null</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\poblamiento tiempo_dim\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{AECF7740-AAA1-44C4-8753-57F0B62953A2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-QPDCREO.Northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[orderdate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[orderdate]"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[orderdate]"
+                      name="orderdate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[dia]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dia]"
+                      length="30"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[dia]"
+                      name="dia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[mes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mes]"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[mes]"
+                      name="mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[trimestre]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[trimestre]"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[trimestre]"
+                      name="trimestre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[año]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[año]"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[año]"
+                      name="año"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[orderdate]"
+                      dataType="dbTimeStamp"
+                      name="orderdate" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dia]"
+                      dataType="wstr"
+                      length="30"
+                      name="dia" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[mes]"
+                      dataType="i4"
+                      name="mes" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[trimestre]"
+                      dataType="i4"
+                      name="trimestre" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[año]"
+                      dataType="i4"
+                      name="año" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[orderdate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[orderdate]"
+                      name="orderdate" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dia]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dia]"
+                      name="dia" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mes]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[mes]"
+                      name="mes" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[trimestre]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[trimestre]"
+                      name="trimestre" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[año]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[año]"
+                      name="año" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\poblamiento tiempo_dim.Paths[OLE DB Source Output]"
+              endId="Package\poblamiento tiempo_dim\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\poblamiento tiempo_dim\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -1427,6 +1798,14 @@ FROM     Products INNER JOIN
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\poblamiento empleado_dim" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{883CEC8C-8246-4505-A703-36C599177732}"
+      DTS:From="Package\limpieza de datos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\poblamiento tiempo_dim" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1447,33 +1826,33 @@ FROM     Products INNER JOIN
         <NodeLayout
           Size="207.2,41.6"
           Id="Package\poblamiento comenvio_dim"
-          TopLeft="261.428575880674,64.2352950185228" />
+          TopLeft="241.428575540076,8.41176482385415" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="130.714286577945,166.705884690928">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="234.314289302729,-60.8705896724052"
+              EndConnector="118.714288962131,-116.694119867074"
               Start="0,0"
-              End="234.314289302729,-53.3705896724052">
+              End="118.714288962131,-109.194119867074">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-26.4352948362026" />
+                    End="0,-87.229413335876" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-26.4352948362026"
-                    Point2="0,-30.4352948362026"
-                    Point3="4,-30.4352948362026" />
+                    Point1="0,-87.229413335876"
+                    Point2="0,-91.229413335876"
+                    Point3="4,-91.229413335876" />
                   <mssgle:LineSegment
-                    End="230.314289302729,-30.4352948362026" />
+                    End="114.714288962131,-91.229413335876" />
                   <mssgle:CubicBezierSegment
-                    Point1="230.314289302729,-30.4352948362026"
-                    Point2="234.314289302729,-30.4352948362026"
-                    Point3="234.314289302729,-34.4352948362026" />
+                    Point1="114.714288962131,-91.229413335876"
+                    Point2="118.714288962131,-91.229413335876"
+                    Point3="118.714288962131,-95.229413335876" />
                   <mssgle:LineSegment
-                    End="234.314289302729,-53.3705896724052" />
+                    End="118.714288962131,-109.194119867074" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1483,23 +1862,35 @@ FROM     Products INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="193.6,41.6"
+          Size="193.6,42.4"
           Id="Package\poblamiento cliente_dim"
-          TopLeft="279.285719041922,162.88235522554" />
+          TopLeft="274.285718956772,70.3529421631441" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="210.714286577945,185.594119958234">
+          TopLeft="156.047619911278,166.705884690928">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="68.5714324639769,0"
+              EndConnector="139.323812041802,-53.9529425277839"
               Start="0,0"
-              End="61.0714324639769,0">
+              End="139.323812041802,-46.4529425277839">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="61.0714324639769,0" />
+                    End="0,-31.6663956163793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-31.6663956163793"
+                    Point2="0,-35.6663956163793"
+                    Point3="4,-35.6663956163793" />
+                  <mssgle:LineSegment
+                    End="135.323812041802,-35.6663956163793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135.323812041802,-35.6663956163793"
+                    Point2="139.323812041802,-35.6663956163793"
+                    Point3="139.323812041802,-39.6663956163793" />
+                  <mssgle:LineSegment
+                    End="139.323812041802,-46.4529425277839" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1511,33 +1902,33 @@ FROM     Products INNER JOIN
         <NodeLayout
           Size="204.8,41.6"
           Id="Package\poblamiento producto_dim"
-          TopLeft="282.642861862572,253.264709357159" />
+          TopLeft="324.071433996668,133.970590037046" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="130.714286577945,208.305884690928">
+          TopLeft="210.714286577945,187.505884690928">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="254.328575284627,44.9588246662315"
+              EndConnector="113.357147418723,-32.7352946538823"
               Start="0,0"
-              End="254.328575284627,37.4588246662315">
+              End="105.857147418723,-32.7352946538823">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.4794123331157" />
+                    End="52.6785737093614,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.4794123331157"
-                    Point2="0,22.4794123331157"
-                    Point3="4,22.4794123331157" />
+                    Point1="52.6785737093614,0"
+                    Point2="56.6785737093614,0"
+                    Point3="56.6785737093614,-4" />
                   <mssgle:LineSegment
-                    End="250.328575284627,22.4794123331157" />
+                    End="56.6785737093614,-28.7352946538823" />
                   <mssgle:CubicBezierSegment
-                    Point1="250.328575284627,22.4794123331157"
-                    Point2="254.328575284627,22.4794123331157"
-                    Point3="254.328575284627,26.4794123331157" />
+                    Point1="56.6785737093614,-28.7352946538823"
+                    Point2="56.6785737093614,-32.7352946538823"
+                    Point3="60.6785737093614,-32.7352946538823" />
                   <mssgle:LineSegment
-                    End="254.328575284627,37.4588246662315" />
+                    End="105.857147418723,-32.7352946538823" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1547,35 +1938,73 @@ FROM     Products INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="208.8,41.6"
+          Size="208.8,42.4"
           Id="Package\poblamiento empleado_dim"
-          TopLeft="265.000004512923,349.470593136487" />
+          TopLeft="339.285720063716,198.82353220019" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="105.380953244612,208.305884690928">
+          TopLeft="210.714286577945,193.105884690928">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="167.619051268312,141.164708445559"
+              EndConnector="128.571433485771,26.9176475092615"
               Start="0,0"
-              End="167.619051268312,133.664708445559">
+              End="121.071433485771,26.9176475092615">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.3044856066131" />
+                    End="50.2857163606589,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,53.3044856066131"
-                    Point2="0,57.3044856066131"
-                    Point3="4,57.3044856066131" />
+                    Point1="50.2857163606589,0"
+                    Point2="54.2857163606589,0"
+                    Point3="54.2857163606589,4" />
                   <mssgle:LineSegment
-                    End="163.619051268312,57.3044856066131" />
+                    End="54.2857163606589,22.9176475092615" />
                   <mssgle:CubicBezierSegment
-                    Point1="163.619051268312,57.3044856066131"
-                    Point2="167.619051268312,57.3044856066131"
-                    Point3="167.619051268312,61.3044856066131" />
+                    Point1="54.2857163606589,22.9176475092615"
+                    Point2="54.2857163606589,26.9176475092615"
+                    Point3="58.2857163606589,26.9176475092615" />
                   <mssgle:LineSegment
-                    End="167.619051268312,133.664708445559" />
+                    End="121.071433485771,26.9176475092615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\poblamiento tiempo_dim"
+          TopLeft="272.142861777422,276.82353329411" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="130.714286577945,208.305884690928">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163.314288195785,68.5176486031822"
+              Start="0,0"
+              End="163.314288195785,61.0176486031822">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2588243015911" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2588243015911"
+                    Point2="0,34.2588243015911"
+                    Point3="4,34.2588243015911" />
+                  <mssgle:LineSegment
+                    End="159.314288195785,34.2588243015911" />
+                  <mssgle:CubicBezierSegment
+                    Point1="159.314288195785,34.2588243015911"
+                    Point2="163.314288195785,34.2588243015911"
+                    Point3="163.314288195785,38.2588243015911" />
+                  <mssgle:LineSegment
+                    End="163.314288195785,61.0176486031822" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1829,6 +2258,65 @@ FROM     Products INNER JOIN
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\poblamiento empleado_dim\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\poblamiento tiempo_dim">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\poblamiento tiempo_dim\OLE DB Source"
+          TopLeft="414,63" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\poblamiento tiempo_dim\OLE DB Destination"
+          TopLeft="408,238" />
+        <EdgeLayout
+          Id="Package\poblamiento tiempo_dim.Paths[OLE DB Source Output]"
+          TopLeft="491,104.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,133.4"
+              Start="0,0"
+              End="0,125.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,125.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\poblamiento tiempo_dim\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\poblamiento tiempo_dim\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
