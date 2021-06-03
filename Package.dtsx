@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{FEC54967-358C-492D-8F80-8D517C8C8DAC}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{B8367847-7064-459A-8A56-8FE0855611D1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -764,6 +764,320 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\poblamiento empleado_dim"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{02427EF0-02DF-4325-9CFC-C7AC59E78AC8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="poblamiento empleado_dim"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\poblamiento empleado_dim\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[empleado_dim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\poblamiento empleado_dim\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{2F3544C3-887E-42B9-A949-2287DFC27F56}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-QPDCREO.prueba_northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[employeeid]"
+                      cachedDataType="i4"
+                      cachedName="employeeid"
+                      externalMetadataColumnId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[employeeid]"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[employeeid]" />
+                    <inputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[titulo]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="titulo"
+                      externalMetadataColumnId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[titulo]"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[titulo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[empleadokey]"
+                      dataType="i4"
+                      name="empleadokey" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[employeeid]"
+                      dataType="i4"
+                      name="employeeid" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[titulo]"
+                      dataType="wstr"
+                      length="50"
+                      name="titulo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\poblamiento empleado_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\poblamiento empleado_dim\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select employeeid, lastname+', '+firstname as nombre, titleofcourtesy as titulo from Employees</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\poblamiento empleado_dim\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{AECF7740-AAA1-44C4-8753-57F0B62953A2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-QPDCREO.Northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[employeeid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employeeid]"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[employeeid]"
+                      name="employeeid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      length="32"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[titulo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[titulo]"
+                      length="25"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].Columns[titulo]"
+                      name="titulo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[employeeid]"
+                      dataType="i4"
+                      name="employeeid" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="32"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[titulo]"
+                      dataType="wstr"
+                      length="25"
+                      name="titulo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employeeid]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[employeeid]"
+                      name="employeeid" />
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      dataType="wstr"
+                      length="32"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[titulo]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[titulo]"
+                      name="titulo" />
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\poblamiento empleado_dim.Paths[OLE DB Source Output]"
+              endId="Package\poblamiento empleado_dim\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\poblamiento empleado_dim\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\poblamiento producto_dim"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -1105,6 +1419,14 @@ FROM     Products INNER JOIN
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\poblamiento producto_dim" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{F0B26F9B-8D60-4D69-9DFD-B7E672A19965}"
+      DTS:From="Package\limpieza de datos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\poblamiento empleado_dim" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1117,7 +1439,7 @@ FROM     Products INNER JOIN
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="160,41.6"
           Id="Package\limpieza de datos"
@@ -1216,6 +1538,44 @@ FROM     Products INNER JOIN
                     Point3="254.328575284627,26.4794123331157" />
                   <mssgle:LineSegment
                     End="254.328575284627,37.4588246662315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\poblamiento empleado_dim"
+          TopLeft="265.000004512923,349.470593136487" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="105.380953244612,208.305884690928">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167.619051268312,141.164708445559"
+              Start="0,0"
+              End="167.619051268312,133.664708445559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.3044856066131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.3044856066131"
+                    Point2="0,57.3044856066131"
+                    Point3="4,57.3044856066131" />
+                  <mssgle:LineSegment
+                    End="163.619051268312,57.3044856066131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="163.619051268312,57.3044856066131"
+                    Point2="167.619051268312,57.3044856066131"
+                    Point3="167.619051268312,61.3044856066131" />
+                  <mssgle:LineSegment
+                    End="167.619051268312,133.664708445559" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1410,6 +1770,65 @@ FROM     Products INNER JOIN
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\poblamiento producto_dim\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\poblamiento empleado_dim">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\poblamiento empleado_dim\OLE DB Source"
+          TopLeft="378,81" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\poblamiento empleado_dim\OLE DB Destination"
+          TopLeft="368,227" />
+        <EdgeLayout
+          Id="Package\poblamiento empleado_dim.Paths[OLE DB Source Output]"
+          TopLeft="453,122.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104.4"
+              Start="0,0"
+              End="0,96.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\poblamiento empleado_dim\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\poblamiento empleado_dim\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
